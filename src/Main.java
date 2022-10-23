@@ -16,7 +16,7 @@ public class Main {
 
         CyclicBarrier barrier = new CyclicBarrier(N);
         List<Thread> threads = IntStream.range(0, N)
-                .mapToObj(Integer::valueOf)
+                .boxed()
                 .map(i -> new Thread(() -> {
                     try {
                         barrier.await();
